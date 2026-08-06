@@ -1,0 +1,87 @@
+-
+	const legalIconMore = `
+		<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M6.375 12.75L10.625 8.5L6.375 4.25" stroke="#4A5565" stroke-width="1.41667" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const legalIconTransport = `
+		<svg width="21.25" height="21.25" viewBox="0 0 21.25 21.25" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M5.3125 19.4792V3.54167C5.3125 3.07201 5.49907 2.62159 5.83117 2.2895C6.16326 1.9574 6.61368 1.77083 7.08333 1.77083H14.1667C14.6363 1.77083 15.0867 1.9574 15.4188 2.2895C15.7509 2.62159 15.9375 3.07201 15.9375 3.54167V19.4792H5.3125Z" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M5.3125 10.625H3.54167C3.07201 10.625 2.62159 10.8116 2.2895 11.1437C1.9574 11.4758 1.77083 11.9262 1.77083 12.3958V17.7083C1.77083 18.178 1.9574 18.6284 2.2895 18.9605C2.62159 19.2926 3.07201 19.4792 3.54167 19.4792H5.3125" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M15.9375 7.96875H17.7083C18.178 7.96875 18.6284 8.15532 18.9605 8.48742C19.2926 8.81951 19.4792 9.26993 19.4792 9.73958V17.7083C19.4792 18.178 19.2926 18.6284 18.9605 18.9605C18.6284 19.2926 18.178 19.4792 17.7083 19.4792H15.9375" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M8.85417 5.3125H12.3958" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M8.85417 8.85417H12.3958" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M8.85417 12.3958H12.3958" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M8.85417 15.9375H12.3958" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const legalIconDoc = `
+		<svg width="21.25" height="21.25" viewBox="0 0 21.25 21.25" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M13.2813 1.77083H5.3125C4.84285 1.77083 4.39243 1.9574 4.06033 2.2895C3.72824 2.62159 3.54167 3.07201 3.54167 3.54167V17.7083C3.54167 18.178 3.72824 18.6284 4.06033 18.9605C4.39243 19.2926 4.84285 19.4792 5.3125 19.4792H15.9375C16.4072 19.4792 16.8576 19.2926 17.1897 18.9605C17.5218 18.6284 17.7083 18.178 17.7083 17.7083V6.19792L13.2813 1.77083Z" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M12.3958 1.77083V5.3125C12.3958 5.78215 12.5824 6.23257 12.9145 6.56467C13.2466 6.89676 13.697 7.08333 14.1667 7.08333H17.7083" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M8.85417 7.96875H7.08333" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M14.1667 11.5104H7.08333" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M14.1667 15.0521H7.08333" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const legalIconGasif = `
+		<svg width="21.25" height="21.25" viewBox="0 0 21.25 21.25" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M7.52604 12.8385C8.11311 12.8385 8.67613 12.6053 9.09125 12.1902C9.50637 11.7751 9.73958 11.2121 9.73958 10.625C9.73958 9.40313 9.29687 8.85417 8.85417 7.96875C7.905 6.0713 8.65583 4.37927 10.625 2.65625C11.0677 4.86979 12.3958 6.99479 14.1667 8.41146C15.9375 9.82813 16.8229 11.5104 16.8229 13.2813C16.8229 14.0952 16.6626 14.9011 16.3511 15.6531C16.0397 16.4051 15.5831 17.0883 15.0076 17.6638C14.4321 18.2394 13.7488 18.6959 12.9968 19.0074C12.2449 19.3189 11.4389 19.4792 10.625 19.4792C9.81108 19.4792 9.00513 19.3189 8.25316 19.0074C7.50119 18.6959 6.81794 18.2394 6.24241 17.6638C5.66688 17.0883 5.21035 16.4051 4.89887 15.6531C4.5874 14.9011 4.42708 14.0952 4.42708 13.2813C4.42708 12.2604 4.81047 11.2501 5.3125 10.625C5.3125 11.2121 5.54571 11.7751 5.96083 12.1902C6.37595 12.6053 6.93897 12.8385 7.52604 12.8385Z" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const legalIconAccount = `
+		<svg width="21.25" height="21.25" viewBox="0 0 21.25 21.25" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M16.8229 18.5938V16.8229C16.8229 15.8836 16.4498 14.9828 15.7856 14.3186C15.1214 13.6544 14.2206 13.2813 13.2812 13.2812H7.96875C7.02944 13.2813 6.1286 13.6544 5.46441 14.3186C4.80022 14.9828 4.42708 15.8836 4.42708 16.8229V18.5938" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M10.625 9.73958C12.581 9.73958 14.1667 8.15393 14.1667 6.19792C14.1667 4.24191 12.581 2.65625 10.625 2.65625C8.66899 2.65625 7.08333 4.24191 7.08333 6.19792C7.08333 8.15393 8.66899 9.73958 10.625 9.73958Z" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const legalIconIllustration = `
+		<svg width="228" height="295" viewBox="0 0 228 295" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M202.541 258.125V233.542C202.541 220.502 197.361 207.996 188.14 198.776C178.919 189.555 166.414 184.375 153.374 184.375H79.6239C66.5841 184.375 54.0784 189.555 44.8579 198.776C35.6373 207.996 30.4573 220.502 30.4573 233.542V258.125" stroke="white" stroke-opacity="0.07" stroke-width="24.5833" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M116.499 135.208C143.653 135.208 165.666 113.196 165.666 86.0417C165.666 58.8877 143.653 36.875 116.499 36.875C89.3449 36.875 67.3323 58.8877 67.3323 86.0417C67.3323 113.196 89.3449 135.208 116.499 135.208Z" stroke="white" stroke-opacity="0.07" stroke-width="24.5833" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const legalServices = [
+		{ title: 'Транспортировка газа', text: 'Заключение договора, тарифы, документы', icon: legalIconTransport },
+		{ title: 'Техническое обслуживание газового оборудования', text: 'ТО ВД(К)ГО МКД, крышные котельные', icon: legalIconDoc },
+		{ title: 'Газификация объектов', text: 'Подключение к газораспределительной системе', icon: legalIconGasif },
+		{ title: 'Заявка на ТО ВД(К)ГО МКД (крышные котельные)', text: 'Для управляющих компаний и ТСЖ', icon: legalIconDoc }
+	]
+
+section.legal
+	.container
+
+		.section-head
+			h2.section-title Юридическим лицам
+			a.section-more(href="#")
+				span Все сервисы
+				!= legalIconMore
+
+		.legal__body
+
+			.legal__list
+				each item in legalServices
+					a.legal__card.box(href="#")
+						.legal__card-tile !{item.icon}
+						.legal__card-body
+							h3.legal__card-title= item.title
+							p.legal__card-text= item.text
+
+			a.legal__account(href="#")
+				.legal__account-inner
+					.legal__account-head
+						.legal__account-tile !{legalIconAccount}
+						.legal__account-info
+							h3.legal__account-title
+								| Личный кабинет
+								br
+								| для юридических лиц
+							p.legal__account-text Управление договорами и платежами
+					span.legal__account-btn Войти
+				.legal__account-img !{legalIconIllustration}

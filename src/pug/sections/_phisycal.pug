@@ -1,0 +1,121 @@
+-
+	const iconMore = `
+		<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M6.375 12.75L10.625 8.5L6.375 4.25" stroke="#4A5565" stroke-width="1.41667" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const iconArr = `
+		<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="18.5" cy="18.5" r="18.5" fill="white"/>
+			<path d="M24.9433 19.0233C25.2322 18.7343 25.2322 18.2657 24.9433 17.9767L20.2339 13.2674C19.9449 12.9784 19.4764 12.9784 19.1874 13.2674C18.8984 13.5564 18.8984 14.0249 19.1874 14.3139L23.3735 18.5L19.1874 22.6861C18.8984 22.9751 18.8984 23.4436 19.1874 23.7326C19.4764 24.0216 19.9449 24.0216 20.2339 23.7326L24.9433 19.0233ZM13.32 18.5V19.24H24.42V18.5V17.76H13.32V18.5Z" fill="black"/>
+		</svg>
+	`
+
+	const iconHouse = `
+		<svg width="25.5" height="25.5" viewBox="0 0 25.5 25.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M15.9375 22.3125V13.8125C15.9375 13.5307 15.8256 13.2605 15.6263 13.0612C15.427 12.8619 15.1568 12.75 14.875 12.75H10.625C10.3432 12.75 10.073 12.8619 9.8737 13.0612C9.67444 13.2605 9.5625 13.5307 9.5625 13.8125V22.3125" stroke="#004578" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M3.1875 10.625C3.18743 10.3159 3.25479 10.0105 3.3849 9.73007C3.51501 9.44967 3.70472 9.20103 3.94081 9.0015L11.3783 2.62756C11.7619 2.3034 12.2478 2.12555 12.75 2.12555C13.2522 2.12555 13.7381 2.3034 14.1217 2.62756L21.5592 9.0015C21.7953 9.20103 21.985 9.44967 22.1151 9.73007C22.2452 10.0105 22.3126 10.3159 22.3125 10.625V20.1875C22.3125 20.7511 22.0886 21.2916 21.6901 21.6901C21.2916 22.0886 20.7511 22.3125 20.1875 22.3125H5.3125C4.74891 22.3125 4.20841 22.0886 3.8099 21.6901C3.41138 21.2916 3.1875 20.7511 3.1875 20.1875V10.625Z" stroke="#004578" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const iconDoc = `
+		<svg width="25.5" height="25.5" viewBox="0 0 25.5 25.5" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M6.375 23.375V4.25C6.375 3.68641 6.59888 3.14591 6.9974 2.7474C7.39591 2.34888 7.93641 2.125 8.5 2.125H17C17.5636 2.125 18.1041 2.34888 18.5026 2.7474C18.9011 3.14591 19.125 3.68641 19.125 4.25V23.375H6.375Z" stroke="#004578" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M6.375 12.75H4.25C3.68641 12.75 3.14591 12.9739 2.7474 13.3724C2.34888 13.7709 2.125 14.3114 2.125 14.875V21.25C2.125 21.8136 2.34888 22.3541 2.7474 22.7526C3.14591 23.1511 3.68641 23.375 4.25 23.375H6.375" stroke="#004578" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M19.125 9.5625H21.25C21.8136 9.5625 22.3541 9.78638 22.7526 10.1849C23.1511 10.5834 23.375 11.1239 23.375 11.6875V21.25C23.375 21.8136 23.1511 22.3541 22.7526 22.7526C22.3541 23.1511 21.8136 23.375 21.25 23.375H19.125" stroke="#004578" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M10.625 6.375H14.875" stroke="#004578" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M10.625 10.625H14.875" stroke="#004578" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M10.625 14.875H14.875" stroke="#004578" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M10.625 19.125H14.875" stroke="#004578" stroke-width="2.125" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const iconService = `
+		<svg width="21.25" height="21.25" viewBox="0 0 21.25 21.25" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M13.2813 1.77083H5.3125C4.84285 1.77083 4.39243 1.9574 4.06033 2.2895C3.72824 2.62159 3.54167 3.07201 3.54167 3.54167V17.7083C3.54167 18.178 3.72824 18.6284 4.06033 18.9605C4.39243 19.2926 4.84285 19.4792 5.3125 19.4792H15.9375C16.4072 19.4792 16.8576 19.2926 17.1897 18.9605C17.5218 18.6284 17.7083 18.178 17.7083 17.7083V6.19792L13.2813 1.77083Z" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M12.3958 1.77083V5.3125C12.3958 5.78215 12.5824 6.23257 12.9145 6.56467C13.2466 6.89676 13.697 7.08333 14.1667 7.08333H17.7083" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M8.85417 7.96875H7.08333" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M14.1667 11.5104H7.08333" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M14.1667 15.0521H7.08333" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const iconSug = `
+		<svg width="21.25" height="21.25" viewBox="0 0 21.25 21.25" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M7.52604 12.8385C8.11311 12.8385 8.67613 12.6053 9.09125 12.1902C9.50637 11.7751 9.73958 11.2121 9.73958 10.625C9.73958 9.40313 9.29687 8.85417 8.85417 7.96875C7.905 6.0713 8.65583 4.37927 10.625 2.65625C11.0677 4.86979 12.3958 6.99479 14.1667 8.41146C15.9375 9.82813 16.8229 11.5104 16.8229 13.2813C16.8229 14.0952 16.6626 14.9011 16.3511 15.6531C16.0397 16.4051 15.5831 17.0883 15.0076 17.6638C14.4321 18.2394 13.7488 18.6959 12.9968 19.0074C12.2449 19.3189 11.4389 19.4792 10.625 19.4792C9.81108 19.4792 9.00513 19.3189 8.25316 19.0074C7.50119 18.6959 6.81794 18.2394 6.24241 17.6638C5.66688 17.0883 5.21035 16.4051 4.89887 15.6531C4.5874 14.9011 4.42708 14.0952 4.42708 13.2813C4.42708 12.2604 4.81047 11.2501 5.3125 10.625C5.3125 11.2121 5.54571 11.7751 5.96083 12.1902C6.37595 12.6053 6.93897 12.8385 7.52604 12.8385Z" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const iconHouse2 = `
+		<svg width="21.25" height="21.25" viewBox="0 0 21.25 21.25" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M13.2813 18.5938V11.5104C13.2813 11.2756 13.188 11.0504 13.0219 10.8843C12.8559 10.7183 12.6307 10.625 12.3958 10.625H8.85417C8.61934 10.625 8.39413 10.7183 8.22808 10.8843C8.06203 11.0504 7.96875 11.2756 7.96875 11.5104V18.5938" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M2.65625 8.85417C2.65619 8.59657 2.71233 8.34206 2.82075 8.10839C2.92917 7.87473 3.08727 7.66753 3.28401 7.50125L9.48193 2.18964C9.80155 1.9195 10.2065 1.77129 10.625 1.77129C11.0435 1.77129 11.4485 1.9195 11.7681 2.18964L17.966 7.50125C18.1627 7.66753 18.3208 7.87473 18.4293 8.10839C18.5377 8.34206 18.5938 8.59657 18.5938 8.85417V16.8229C18.5938 17.2926 18.4072 17.743 18.0751 18.0751C17.743 18.4072 17.2926 18.5937 16.8229 18.5937H4.42708C3.95743 18.5937 3.50701 18.4072 3.17491 18.0751C2.84282 17.743 2.65625 17.2926 2.65625 16.8229V8.85417Z" stroke="#004578" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const iconBtn = `
+		<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M10.625 2.125H14.875V6.375" stroke="white" stroke-width="1.41667" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M7.08333 9.91667L14.875 2.125" stroke="white" stroke-width="1.41667" stroke-linecap="round" stroke-linejoin="round"/>
+			<path d="M12.75 9.20833V13.4583C12.75 13.8341 12.6007 14.1944 12.3351 14.4601C12.0694 14.7257 11.7091 14.875 11.3333 14.875H3.54167C3.16594 14.875 2.80561 14.7257 2.53993 14.4601C2.27426 14.1944 2.125 13.8341 2.125 13.4583V5.66667C2.125 5.29094 2.27426 4.93061 2.53993 4.66493C2.80561 4.39926 3.16594 4.25 3.54167 4.25H7.79167" stroke="white" stroke-width="1.41667" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const categories = [
+		{
+			title: 'Жилое помещение',
+			icon: iconHouse,
+			img: 'img/service-1.webp',
+			theme: 'orange',
+			tags: ['Квартира', 'Частный дом']
+		},
+		{
+			title: 'Нежилое помещение',
+			icon: iconDoc,
+			img: 'img/service-2.webp',
+			theme: 'blue',
+			tags: ['Гараж', 'Дача', 'Коммерческий объект']
+		}
+	]
+
+	const serviceCards = [
+		{ title: 'ТО ВД(К)ГО', text: 'Техническое обслуживание внутридомового газового оборудования', icon: iconService },
+		{ title: 'Ремонтно-заявочное обслуживание', text: 'Ремонт и замена газового оборудования', icon: iconService },
+		{ title: 'Реализация сжиженного углеводородного газа', text: 'Приобретение и доставка СУГ', icon: iconSug },
+		{ title: 'Догазификация', text: 'Социальная газификация домовладений', icon: iconHouse2, button: { text: 'Подать заявку', icon: iconBtn } }
+	]
+
+section.services
+	.container
+
+		.section-head
+			h2.section-title Физическим лицам
+			a.section-more(href="#")
+				span Все сервисы
+				!= iconMore
+
+		.services__categories
+			each cat in categories
+				a.services__category(href="#", class='services__category--' + cat.theme)
+					.services__category-inner
+						.services__category-tile !{cat.icon}
+						.services__category-body
+							h3.services__category-title= cat.title
+							ul.services__category-tags
+								each tag in cat.tags
+									li.services__category-tag= tag
+					img.services__category-img(src=cat.img, alt="")
+					.services__category-arrow !{iconArr}
+
+		.services__list
+			each card in serviceCards
+				.services__card.box
+					.services__card-tile !{card.icon}
+					.services__card-body
+						h3.services__card-title= card.title
+						p.services__card-text= card.text
+						if card.button
+							a.services__btn(href="#")
+								!= card.button.icon
+								span= card.button.text
