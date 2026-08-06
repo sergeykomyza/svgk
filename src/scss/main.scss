@@ -1,0 +1,240 @@
+
+
+/*
+0. Шрифты
+1. Общие стили для всего сайта
+2. Вспомогательные классы
+3. Стили для одинаковых элементов
+4. Шапка
+5. Подвал
+6. Стили которые не повторяются на других страницах
+
+Мобильная версия начинается с 992пх
+
+*/
+
+@import 'blocks/vars';
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ШРИФТЫ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@import 'blocks/fonts';
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	ОБЩИЕ СТИЛИ ДЛЯ ВСЕГО САЙТА 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+*,
+p,
+h1,h2,h3,h4,h5,h6{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	line-height: normal;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html{ 
+	overflow-x: hidden;
+	&.fixed{
+		overflow: hidden;
+	}
+}
+body{
+	font-family: var(--font-1);
+	font-weight: 400;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+	}
+}
+button{ 
+	display: block;
+	font-family: var(--font-1);
+	background: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	&:focus{
+		outline: none;
+	}
+	&:disabled{
+		pointer-events: none;
+		opacity: 0.5;
+	}
+}
+input, textarea{
+	outline: none;
+	&:focus-visible{
+		outline: none;
+	}
+	&:disabled{
+		pointer-events: none;
+		opacity: 0.5;
+	}
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~ Стилизация скроллбара
+* ::-webkit-scrollbar {
+    width: 6px; /* ширина всей полосы прокрутки */
+  }
+  
+  * ::-webkit-scrollbar-track {
+    background: var(--color-3); /* цвет зоны отслеживания */
+    border-radius: 20px;
+  }
+  
+  * ::-webkit-scrollbar-thumb {
+    background-color: var(--color-1); /* цвет бегунка */
+    border-radius: 20px; /* округлось бегунка */
+    border: 3px solid transparent;
+  }
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	//END ОБЩИЕ СТИЛИ ДЛЯ ВСЕГО САЙТА 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ (нужны там где нет нужды в осмысленном класснейминге)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	//END	ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	СТИЛИ ДЛЯ ОДИНАКОВЫХ ЭЛЕМЕНТОВ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@import 'blocks/templates';
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	//END СТИЛИ ДЛЯ ОДИНАКОВЫХ ЭЛЕМЕНТОВ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	HEADER 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@import 'blocks/header';
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	//END HEADER  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	FOOTER  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@import 'blocks/footer';
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	//END FOOTER  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+	СТИЛИ КОТОРЫЕ НЕ ПОВТОРЯЮТСЯ НА ДРУГИХ СТРАНИЦАХ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.present {
+	position: relative;
+	min-height: 540px;
+	padding-top: 215px;
+	padding-bottom: 61px;
+	@media (max-width: 992px) {
+		padding-top: 134px;
+		padding-bottom: 20px;
+	}
+	&__img {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__title {
+		max-width: 678px;
+		width: 100%;
+		margin-bottom: 20px;
+		font-family: var(--font-2);
+		font-size: 36px;
+		font-weight: 700;
+		line-height: 130%;
+		color: var(--color-0);
+		@media (max-width: 992px) {
+			margin-bottom: 10px;
+			font-size: 18px;
+		}
+	}
+	&__text {
+		margin-bottom: 40px;
+		font-size: 15px;
+		line-height: 140%;
+		color: var(--color-0);
+		@media (max-width: 992px) {
+			margin-bottom: 20px;
+			font-size: 12px;
+		}
+	}
+}
+
+.present-services{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
+	@media (max-width: 565px) {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10px;
+	}
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		@media(max-width: 565px) {
+			flex-direction: column;
+			align-items: start;
+		}
+	}
+	&__info {
+		display: flex;
+		flex-direction: column;
+	}
+	&__icon {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 50px;
+		height: 50px;
+		background: #F3F4F6;
+		border-radius: 50%;
+		@media(max-width: 565px) {
+			width: 32px;
+			height: 32px;
+			svg {
+				width: 13px;
+			}
+		}
+	}
+	&__title {
+		font-size: 15px;
+		font-weight: 700;
+		line-height: 130%;
+		color: var(--color-1);
+		@media(max-width: 565px) {
+			font-size: 12px;
+		}
+	}
+	&__text {
+		font-size: 12px;
+		line-height: 130%;
+		font-weight: 700;
+		color: var(--color-2);
+		@media(max-width: 565px) {
+			font-size: 10px;
+		}
+	}
+}

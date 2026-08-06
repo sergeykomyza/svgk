@@ -1,0 +1,60 @@
+-
+    const presentServices = [
+        {
+            icon: `
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path d="M17.7083 4.42709H3.54159C2.56358 4.42709 1.77075 5.21992 1.77075 6.19793V15.0521C1.77075 16.0301 2.56358 16.8229 3.54159 16.8229H17.7083C18.6863 16.8229 19.4791 16.0301 19.4791 15.0521V6.19793C19.4791 5.21992 18.6863 4.42709 17.7083 4.42709Z" stroke="#0179C0" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M1.77075 8.85416H19.4791" stroke="#0179C0" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            `,
+            title: 'Оплатить услуги ТО ВД(К)ГО',
+            text: '',
+        },
+        {
+            icon: `
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path d="M17.7083 3.54166H3.54159C2.56358 3.54166 1.77075 4.33449 1.77075 5.31249V15.9375C1.77075 16.9155 2.56358 17.7083 3.54159 17.7083H17.7083C18.6863 17.7083 19.4791 16.9155 19.4791 15.9375V5.31249C19.4791 4.33449 18.6863 3.54166 17.7083 3.54166Z" stroke="#0179C0" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.4791 6.19791L11.5369 11.2448C11.2635 11.416 10.9475 11.5069 10.6249 11.5069C10.3023 11.5069 9.98629 11.416 9.71294 11.2448L1.77075 6.19791" stroke="#0179C0" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            `,
+            title: 'Подписаться на квитанции',
+            text: 'для внесения платы за ТО ВД(К)ГО',
+        },
+        {
+            icon: `
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path d="M16.8228 18.5938V16.8229C16.8228 15.8836 16.4497 14.9828 15.7855 14.3186C15.1213 13.6544 14.2205 13.2813 13.2812 13.2812H7.96867C7.02936 13.2813 6.12852 13.6544 5.46433 14.3186C4.80014 14.9828 4.427 15.8836 4.427 16.8229V18.5938" stroke="#0179C0" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.6249 9.73958C12.5809 9.73958 14.1666 8.15393 14.1666 6.19792C14.1666 4.24191 12.5809 2.65625 10.6249 2.65625C8.66891 2.65625 7.08325 4.24191 7.08325 6.19792C7.08325 8.15393 8.66891 9.73958 10.6249 9.73958Z" stroke="#0179C0" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            `,
+            title: 'Личный кабинет для физических лиц',
+            text: '',
+        },
+        {
+            icon: `
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <path d="M18.5938 13.2813C18.5938 13.7509 18.4072 14.2013 18.0751 14.5334C17.743 14.8655 17.2926 15.0521 16.8229 15.0521H6.19792L2.65625 18.5938V4.42708C2.65625 3.95743 2.84282 3.50701 3.17492 3.17492C3.50701 2.84282 3.95743 2.65625 4.42708 2.65625H16.8229C17.2926 2.65625 17.743 2.84282 18.0751 3.17492C18.4072 3.50701 18.5938 3.95743 18.5938 4.42708V13.2813Z" stroke="#0179C0" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            `,
+            title: 'Адреса и телефоны отделений',
+            text: '',
+        },
+    ]
+
+.present
+    img.present__img(src="/img/hero-bg.webp", alt="hero")
+
+    .container
+
+        h1.present__title Безопасное и бесперебойное газоснабжение потребителей
+
+        p.present__text Самара и Самарская область
+
+        .present-services
+            each service in presentServices
+                a.present-services__item.box(href="#")
+                    .present-services__icon !{service.icon}
+                    .present-services__info
+                        span.present-services__title= service.title
+                        if service.text
+                            span.present-services__text= service.text
