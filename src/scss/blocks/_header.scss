@@ -160,6 +160,17 @@
     }
 }
 
+.header-submenu {
+    display: none;
+    flex-direction: column;
+    &__link {
+        font-size: 15px;
+        font-weight: 400;
+        color: var(--color-0);
+        line-height: 21px;
+    }
+}
+
 .header-menu {
     margin-left: -13px;
     border-bottom: 1px solid rgba(229, 231, 235, 0.10);
@@ -204,17 +215,10 @@
             &:after {
                 transform: scaleX(1);
             }
+            .header-submenu {
+                display: flex;
+            }
         }
-    }
-}
-
-.header-submenu {
-    display: none;
-    &__link {
-        font-size: 15px;
-        font-weight: 400;
-        color: var(--color-0);
-        line-height: 21px;
     }
 }
 

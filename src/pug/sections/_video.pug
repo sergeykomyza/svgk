@@ -1,0 +1,49 @@
+-
+	const video = [
+		{
+			title: 'Как проходит техническое обслуживание газового оборудования',
+			thumbnail: '/img/video-1.webp',
+			date: '10.06.2025',
+			link: '/img/video/sample-5s.mp4'
+		},
+		{
+			title: 'Правила безопасного использования газа в быту',
+			thumbnail: '/img/video-2.webp',
+			date: '01.06.2025',
+			link: '/img/video/sample-15s.mp4'
+		},
+		{
+			title: 'Программа социальной газификации в Самарской области',
+			thumbnail: '/img/video-3.webp',
+			date: '20.06.2025',
+			link: '/img/video/sample-5s.mp4'
+		},
+		{
+			title: 'Как подать заявку на догазификацию: пошаговая инструкция',
+			thumbnail: '/img/video-4.webp',
+			date: '12.06.2025',
+			link: '/img/video/sample-15s.mp4'
+		},
+	]
+
+section.video
+	.container
+
+		.section-head
+			h2.section-title Видеогалерея
+			a.section-more(href="#")
+				span Все видео
+				!= legalIconMore
+		
+		.video__body
+			each item in video
+				a.video-card(href=item.link data-fslightbox="video" data-autoplay="data-autoplay")
+					.video-card__imgbox
+						img.video-card__img(src=item.thumbnail, alt=item.title)
+						.video-card__iconbox
+							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="18" viewBox="0 0 15 18" fill="none">
+								<path d="M0.885498 0.885498L13.2813 8.85425L0.885498 16.823V0.885498Z" stroke="#364153" stroke-width="1.77083" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+					.video-card__content
+						p.video-card__title= item.title
+						span.video-card__date= item.date

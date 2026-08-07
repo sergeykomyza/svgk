@@ -1,0 +1,80 @@
+-
+	const contactsArrow = `
+		<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M6.375 12.75L10.625 8.5L6.375 4.25" stroke="#4A5565" stroke-width="1.41667" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const contactsIconSiren = `
+		<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
+			<path d="M20.8881 15.9201V18.9201C20.8892 19.1986 20.8322 19.4743 20.7206 19.7294C20.6091 19.9846 20.4454 20.2137 20.2402 20.402C20.035 20.5902 19.7927 20.7336 19.5289 20.8228C19.265 20.912 18.9855 20.9452 18.7081 20.9201C15.631 20.5857 12.6751 19.5342 10.0781 17.8501C7.66194 16.3148 5.61345 14.2663 4.07812 11.8501C2.38809 9.2413 1.33636 6.27109 1.00812 3.1801C0.983127 2.90356 1.01599 2.62486 1.10462 2.36172C1.19324 2.09859 1.33569 1.85679 1.52288 1.65172C1.71008 1.44665 1.93792 1.28281 2.19191 1.17062C2.44589 1.05843 2.72046 1.00036 2.99812 1.0001H5.99812C6.48342 0.995321 6.95391 1.16718 7.32188 1.48363C7.68985 1.80008 7.93019 2.23954 7.99812 2.7201C8.12474 3.68016 8.35957 4.62282 8.69812 5.5301C8.83266 5.88802 8.86178 6.27701 8.78202 6.65098C8.70227 7.02494 8.51698 7.36821 8.24812 7.6401L6.97812 8.9101C8.40167 11.4136 10.4746 13.4865 12.9781 14.9101L14.2481 13.6401C14.52 13.3712 14.8633 13.1859 15.2372 13.1062C15.6112 13.0264 16.0002 13.0556 16.3581 13.1901C17.2654 13.5286 18.2081 13.7635 19.1681 13.8901C19.6539 13.9586 20.0975 14.2033 20.4146 14.5776C20.7318 14.9519 20.9003 15.4297 20.8881 15.9201Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	`
+
+	const contactsCards = [
+		{ title: 'ЦОК Самара-Центр', tag: 'ЦОК', type: 'cok', phone: '+7 (846) 230-31-21', time: 'Пн–Пт 8:00–17:00', address: 'г. Самара, ул. Молодогвардейская, 12', zone: 'Самарский, Ленинский районы' },
+		{ title: 'ЦТП Кировский', tag: 'ЦТП', type: 'ctp', phone: '+7 (846) 230-32-11', time: 'Пн–Пт 8:00–17:00', address: 'г. Самара, ул. Победы, 45', zone: 'Кировский район' },
+		{ title: 'МРГ Тольятти', tag: 'МРГ', type: 'mrg', phone: '+7 (8482) 45-21-00', time: 'Пн–Пт 8:00–17:00', address: 'г. Тольятти, бул. Тольятти, 9', zone: 'г.о. Тольятти' },
+		{ title: 'ЦОК Самара-Центр', tag: 'ЦОК', type: 'cok', phone: '+7 (846) 230-31-21', time: 'Пн–Пт 8:00–17:00', address: 'г. Самара, ул. Молодогвардейская, 12', zone: 'Самарский, Ленинский районы' },
+		{ title: 'ЦТП Кировский', tag: 'ЦТП', type: 'ctp', phone: '+7 (846) 230-32-11', time: 'Пн–Пт 8:00–17:00', address: 'г. Самара, ул. Победы, 45', zone: 'Кировский район' },
+		{ title: 'МРГ Тольятти', tag: 'МРГ', type: 'mrg', phone: '+7 (8482) 45-21-00', time: 'Пн–Пт 8:00–17:00', address: 'г. Тольятти, бул. Тольятти, 9', zone: 'г.о. Тольятти' }
+	]
+
+section.contacts
+	.container
+
+		.section-head
+			h2.section-title Контакты и адреса обслуживания
+			a.section-more(href="#")
+				span Найти свой ЦОК / ЦТП / МРГ
+				!= contactsArrow
+
+		.contacts__top
+
+			.contacts__emergency
+				.contacts__emergency-head
+					.contacts__emergency-icon !{contactsIconSiren}
+					span.contacts__emergency-number 104
+				.contacts__emergency-info
+					span.contacts__emergency-label — Аварийная газовая служба
+					.contacts__emergency-tags
+						span.contacts__emergency-tag Круглосуточно
+						span.contacts__emergency-tag Бесплатно
+				.contacts__emergency-phone
+					a.contacts__emergency-tel(href="tel:+78007076555")
+						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+							<path d="M11.0968 8.45755V10.0513C11.0974 10.1993 11.0671 10.3457 11.0078 10.4813C10.9486 10.6168 10.8616 10.7385 10.7526 10.8385C10.6436 10.9386 10.5149 11.0147 10.3747 11.0621C10.2346 11.1095 10.086 11.1271 9.93869 11.1138C8.30394 10.9362 6.73366 10.3776 5.354 9.48286C4.07041 8.66722 2.98215 7.57896 2.1665 6.29536C1.26868 4.90944 0.709941 3.33152 0.535562 1.68943C0.522286 1.54252 0.539746 1.39446 0.586828 1.25466C0.63391 1.11487 0.709584 0.986418 0.809031 0.877475C0.908479 0.768533 1.02952 0.681491 1.16445 0.621891C1.29938 0.562292 1.44524 0.53144 1.59275 0.531302H3.1865C3.44432 0.528764 3.69426 0.620062 3.88975 0.788178C4.08523 0.956294 4.21292 1.18976 4.249 1.44505C4.31627 1.95509 4.44102 2.45588 4.62087 2.93786C4.69235 3.12801 4.70782 3.33466 4.66545 3.53333C4.62308 3.732 4.52465 3.91436 4.38181 4.0588L3.70712 4.73349C4.46339 6.0635 5.56462 7.16473 6.89462 7.92099L7.56931 7.2463C7.71375 7.10347 7.89611 7.00503 8.09478 6.96266C8.29345 6.92029 8.5001 6.93576 8.69025 7.00724C9.17224 7.18709 9.67303 7.31185 10.1831 7.37911C10.4411 7.41552 10.6768 7.5455 10.8453 7.74435C11.0138 7.94319 11.1033 8.19701 11.0968 8.45755Z" stroke="white" stroke-width="1.0625" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						| +7 (800) 707-65-55
+					span.contacts__emergency-centre Колл-центр — Пн–Пт 8:00–17:00
+
+			.contacts__map
+				img.contacts__map-img(src="/img/contacts-map.webp", alt="Карта обслуживания")
+
+		.contacts__tabs
+			button.contacts__tab.js-tab.is-active(type="button" data-tab="all") Все
+			button.contacts__tab.js-tab(type="button" data-tab="cok") ЦОК
+			button.contacts__tab.js-tab(type="button" data-tab="ctp") ЦТП
+			button.contacts__tab.js-tab(type="button" data-tab="mrg") МРГ
+
+		.contacts__cards
+			each card in contactsCards
+				.contacts__card(data-type=card.type)
+					.contacts__card-head
+						h3.contacts__card-title= card.title
+						span.contacts__card-tag= card.tag
+					.contacts__card-info
+						a.contacts__card-line(href="tel:" + card.phone.replace(/[^+\d]/g, ''))
+							img.contacts__card-icon.contacts__card-icon--tile(src="/img/svg/contacts-phone.svg", alt="")
+							span.contacts__card-tel= card.phone
+						.contacts__card-line
+							img.contacts__card-icon(src="/img/svg/contacts-clock.svg", alt="")
+							span.contacts__card-text= card.time
+						.contacts__card-line
+							img.contacts__card-icon(src="/img/svg/contacts-pin.svg", alt="")
+							span.contacts__card-text= card.address
+						p.contacts__card-zone Зона обслуживания: #{card.zone}
+					a.contacts__card-btn(href="#")
+						span.contacts__card-btn-inner
+							img.contacts__card-btn-icon(src="/img/svg/contacts-map.svg", alt="")
+							| Показать на карте

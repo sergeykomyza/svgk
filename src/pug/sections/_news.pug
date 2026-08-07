@@ -1,0 +1,30 @@
+section.news
+	.container
+
+		h2.section-title Новости компании
+
+		.news__body
+
+			.news__main
+				img.news__main-img(src="/img/news-big.webp", alt="Новости")
+				.news__main-gradient
+				.news__main-meta
+					span.news__main-date 14.06.2025
+					span.news__main-dot ·
+					span.news__main-category Новости компании
+				.news__main-content
+					h3.news__main-title СВГК завершила плановое ТО в Промышленном районе Самары
+					p.news__main-text Специалисты ООО «СВГК» провели плановое техническое обслуживание внутридомового газового оборудования в 120 многоквартирных домах Промышленного района Специалисты ООО «СВГК» провели плановое техническое обслуживание внутридомового газового оборудования в 120 многоквартирных домах Промышленного района
+					a.news__main-link(href="#") Читать полностью  →
+
+			.news__list
+				each item, index in [{date: '12.06.2025', category: 'Объявления', title: 'Обращаем внимание на перечень технологических операций при проведении ТО ВДГО и ВКГО', text: 'Уважаемые абоненты! Просим ознакомиться с полным перечнем технических требований'}, {date: '10.06.2025', category: 'Официально', title: 'Официальное сообщение ООО «СВГК» о тарифах на услуги ТО в 2025 году', text: 'ООО «СВГК» информирует, что в соответствии с решением регулятора соответствии с решением регулятора'}, {date: '10.06.2025', category: 'Официально', title: 'Официальное сообщение ООО «СВГК» о тарифах на услуги ТО в 2025 году', text: 'ООО «СВГК» информирует, что в соответствии с решением регулятора что в соответствии с решением регулятора'}]
+					a.news__card(href="#")
+						img.news__card-img(src="/img/news-" + (index + 1) + ".webp", alt=item.title)
+						.news__card-body
+							.news__card-meta
+								span.news__card-date= item.date
+								span.news__card-dot ·
+								span.news__card-category= item.category
+							h3.news__card-title= item.title
+							p.news__card-text= item.text

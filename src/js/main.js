@@ -128,5 +128,25 @@ const map = () => {
 
 
 
+// ================================================== ТАБЫ (секция контактов)
+const tabs = () => {
+    const tabsWrap = document.querySelector('.contacts__tabs')
+    if (!tabsWrap) return
+    const tabBtns = tabsWrap.querySelectorAll('.js-tab')
+    const cards = document.querySelectorAll('.contacts__card')
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+            tabBtns.forEach(b => b.classList.remove('is-active'))
+            this.classList.add('is-active')
+            const filter = this.dataset.tab
+            cards.forEach(card => {
+                card.style.display = (filter === 'all' || card.dataset.type === filter) ? '' : 'none'
+            })
+        })
+    })
+}
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INIT
 menu()
+tabs()
