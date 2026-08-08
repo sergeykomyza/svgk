@@ -1,8 +1,15 @@
 // ================================================== MENU
 const menu = () => {
     const menuToggle = document.querySelector('.js-toggleMenu')
+    const menuMobile = document.querySelector('.header-menu')
     menuToggle.addEventListener('click', function(){
         this.classList.toggle('is-active')
+        menuMobile.classList.toggle('is-active')
+        document.documentElement.classList.toggle('fixed')
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
     })
 }
 
@@ -80,53 +87,90 @@ const sliders = () => {
 
 }
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ КАРТА, ОТЛОЖЕННАЯ ЗАГРУЗКА (ЧТОБЫ УЛУЧШИТЬ ПОКАЗАТЕЛИ - PageSpeed Insights)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ КАРТА (Яндекс.Карты), ОТЛОЖЕННАЯ ЗАГРУЗКА
+// Адреса и координаты берутся из data-атрибутов кнопок .js-showMap (массив в _contacts.pug)
 const map = () => {
+    const mapEl = document.getElementById('map')
+    if (!mapEl) return
 
-    setTimeout(function() {
-        var headID = document.getElementsByTagName("body")[0];         
-        var newScript = document.createElement('script');
-        newScript.type = 'text/javascript';
-        newScript.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
-        headID.appendChild(newScript);
-    }, 3000);
-    setTimeout(function() {
-            var myMap = new ymaps.Map("map", {
-            center: [55.917879, 37.806326],
-            zoom: 13,
+    const btns = document.querySelectorAll('.js-showMap')
+    const placemarks = {}
+    let myMap = null
+
+    function parseCoords(str) {
+        return str.split(',').map(Number)
+    }
+
+    function init() {
+        const firstCoords = (btns[0] && parseCoords(btns[0].dataset.coords)) || [53.1959, 50.1008]
+        myMap = new ymaps.Map('map', {
+            center: firstCoords,
+            zoom: 8,
             controls: ['smallMapDefaultSet']
         }, {
             searchControlProvider: 'yandex#search'
-        });
+        })
 
-        myGeoObject = new ymaps.GeoObject({
-            geometry: {
-                type: "Point"
-            },
-        });
-        myMap.geoObjects
-            .add(myGeoObject)
-            .add(new ymaps.Placemark([55.917879, 37.806326], {
-                balloonContent: '<strong></strong>',
-                iconCaption: 'М.О., г. Королев, ул. Ленина 12'
+        btns.forEach(btn => {
+            const key = btn.dataset.coords
+            if (placemarks[key]) return
+            const coords = parseCoords(key)
+            const placemark = new ymaps.Placemark(coords, {
+                balloonContentHeader: btn.dataset.title,
+                balloonContentBody: btn.dataset.address,
+                hintContent: btn.dataset.title
             }, {
                 preset: 'islands#blueCircleDotIconWithCaption',
                 iconCaptionMaxWidth: '200'
-            }));
+            })
+            myMap.geoObjects.add(placemark)
+            placemarks[key] = placemark
+        })
 
-        myMap.setType('yandex#publicMap');
-
-        myMap.behaviors.disable('scrollZoom');
-        //на мобильных устройствах... (проверяем по userAgent браузера)
+        myMap.behaviors.disable('scrollZoom')
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            //... отключаем перетаскивание карты
-            myMap.behaviors.disable('drag');
+            myMap.behaviors.disable('drag')
         }
-    }, 4000);
 
+        btns.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault()
+                const key = this.dataset.coords
+                if (!placemarks[key]) return
+                const coords = parseCoords(key)
+                myMap.setCenter(coords, 16)
+                placemarks[key].balloon.open()
+                mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            })
+        })
+    }
+
+    function loadAPI() {
+        if (window.ymaps) {
+            ymaps.ready(init)
+            return
+        }
+        const script = document.createElement('script')
+        script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU'
+        script.onload = () => ymaps.ready(init)
+        document.body.appendChild(script)
+    }
+
+    setTimeout(loadAPI, 3000)
 }
 
-
+// ==================================================
+const toggleMenuMobile = () => {
+    const menuMobile = document.querySelector('.header-menu')
+    if(window.innerWidth <= 992){
+        const btn = menuMobile.querySelectorAll('.js-toggleSubMenu')
+        btn.forEach(item => {
+            item.addEventListener('click', function(){
+                item.closest('.header-menu__item').classList.toggle('is-active')
+            })
+        })
+    }
+}
 
 // ================================================== ТАБЫ (секция контактов)
 const tabs = () => {
@@ -150,3 +194,5 @@ const tabs = () => {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INIT
 menu()
 tabs()
+map()
+toggleMenuMobile()

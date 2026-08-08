@@ -1,15 +1,8 @@
 // ================================================== MENU
 const menu = () => {
     const menuToggle = document.querySelector('.js-toggleMenu')
-    const menuMobile = document.querySelector('.header-menu')
     menuToggle.addEventListener('click', function(){
         this.classList.toggle('is-active')
-        menuMobile.classList.toggle('is-active')
-        document.documentElement.classList.toggle('fixed')
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        })
     })
 }
 
@@ -105,7 +98,7 @@ const map = () => {
         const firstCoords = (btns[0] && parseCoords(btns[0].dataset.coords)) || [53.1959, 50.1008]
         myMap = new ymaps.Map('map', {
             center: firstCoords,
-            zoom: 8,
+            zoom: 12,
             controls: ['smallMapDefaultSet']
         }, {
             searchControlProvider: 'yandex#search'
@@ -159,18 +152,7 @@ const map = () => {
     setTimeout(loadAPI, 3000)
 }
 
-// ==================================================
-const toggleMenuMobile = () => {
-    const menuMobile = document.querySelector('.header-menu')
-    if(window.innerWidth <= 992){
-        const btn = menuMobile.querySelectorAll('.js-toggleSubMenu')
-        btn.forEach(item => {
-            item.addEventListener('click', function(){
-                item.closest('.header-menu__item').classList.toggle('is-active')
-            })
-        })
-    }
-}
+
 
 // ================================================== ТАБЫ (секция контактов)
 const tabs = () => {
@@ -195,4 +177,3 @@ const tabs = () => {
 menu()
 tabs()
 map()
-toggleMenuMobile()
