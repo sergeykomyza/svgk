@@ -454,7 +454,7 @@
                   <div class="pay-form__fieldset"><span class="req-form__label">Способ получения электронного чека *</span>
                     <div class="pay-form__fieldbox">
                       <label class="pay-form__field">
-                        <input class="pay-form__checkbox" type="radio" name="pay-choose"/><span class="pay-form__choosebox"> <span class="pay-form__chooseiconbox">
+                        <input class="pay-form__checkbox" type="radio" name="pay-choose" checked="checked"/><span class="pay-form__choosebox"> <span class="pay-form__chooseiconbox">
                              <svg class="pay-form__chooseicon" width="28" height="28" viewBox="0 0 24 24" fill="none">
 <circle cx="12" cy="12" r="12" fill="#28B7E4"/>
 <path d="M7.30902 13.8505C6.89699 13.4387 6.89699 12.7708 7.30902 12.359C7.72073 11.947 8.38872 11.947 8.80074 12.359L10.579 14.1373L15.1257 8.39922C15.4852 7.94411 16.1457 7.8667 16.6008 8.22598C17.0559 8.58556 17.1334 9.24606 16.7738 9.70116L11.552 16.2917C11.5126 16.3523 11.4664 16.4097 11.4131 16.4628C11.0013 16.8748 10.3334 16.8748 9.92164 16.4628L7.30933 13.8505H7.30902Z" fill="white"/>
@@ -479,8 +479,8 @@
                   <label class="req-form__agree">
                     <input class="req-form__checkbox" type="checkbox" id="rf-agree-pay" name="pay-agree"/><span class="req-form__agree-text">Оплату совершает третье лицо (не абонент). Я подтверждаю, <br/> что имею право оплатить данный счёт.</span>
                   </label>
-                  <label class="req-form__agree" for="rf-agree2">
-                    <input class="req-form__checkbox" type="checkbox" id="rf-agree2" name="agree2" required="required"/><span class="req-form__agree-text">Я даю согласие на обработку персональных данных в соответствии c <br/><a class="req-form__agree-link" href="#">Политикой обработки персональных данных</a><span class="req-form__agree-star"> *</span></span>
+                  <label class="req-form__agree">
+                    <input class="req-form__checkbox" type="checkbox" name="agree2" required="required"/><span class="req-form__agree-text">Я даю согласие на обработку персональных данных в соответствии c <br/><a class="req-form__agree-link" href="#">Политикой обработки персональных данных</a><span class="req-form__agree-star"> *</span></span>
                   </label>
                   <button class="req-form__submit" type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
@@ -498,6 +498,35 @@
                     <li class="req-form__aside-item"><img src="/img/icons/form-check.svg" alt="" loading="lazy"/><span>телефон или адрес электронной почты для получения чека</span></li>
                   </ul><img class="req-form__aside-img" src="/img/form-docs.webp" alt="" loading="lazy"/>
                 </div>
+              </div>
+            </section>
+            <section class="req-form message-form">
+              <h2 class="section-title req-form__title">Отправить обращение</h2>
+              <p class="section-subtitle req-form__subtitle">Форма обратной связи ООО «СВГК». Ответ поступит в течение 10 рабочих дней.</p>
+              <div class="req-form__body">
+                <form class="req-form__form message-form__form" action="#">
+                  <label class="req-form__field"><span class="req-form__label">ФИО<span class="req-form__label-star">*</span></span>
+                    <input class="req-form__input" name="fio" type="text" placeholder="Иванов Иван Иванович"/>
+                  </label>
+                  <label class="req-form__field req-form__field--half"><span class="req-form__label">Телефон<span class="req-form__label-star">*</span></span>
+                    <input class="req-form__input js-inputmask" name="phone" type="tel" placeholder="+7 (___) ___-__-__"/>
+                  </label>
+                  <label class="req-form__field req-form__field--half"><span class="req-form__label">Электронная почта </span>
+                    <input class="req-form__input" name="email" type="email" placeholder="пример@почта.рф"/>
+                  </label>
+                  <label class="req-form__field"><span class="req-form__label">Тема обращения</span>
+                    <textarea class="req-form__textarea" name="message" placeholder="Опишите вашу ситуацию подробнее..."></textarea>
+                  </label>
+                  <div class="req-form__field"><span class="req-form__label">Прикрепить файл</span>
+                    <div class="js-dropzone dropzone">
+                      <div class="dz-message" data-dz-message="data-dz-message">Нажмите для выбора файла или перетащите <br/> (до 10 МБ, PDF, JPG, PNG)</div>
+                    </div>
+                  </div>
+                  <label class="req-form__agree">
+                    <input class="req-form__checkbox" type="checkbox" name="agree2" required="required"/><span class="req-form__agree-text">Я даю согласие на обработку персональных данных в соответствии c <br/><a class="req-form__agree-link" href="#">Политикой обработки персональных данных</a><span class="req-form__agree-star"> *</span></span>
+                  </label>
+                  <button class="req-form__submit" type="submit">Отправить обращение</button>
+                </form>
               </div>
             </section>
           </div>
@@ -565,6 +594,7 @@
     <script src="js/inputmask.js"></script>
     <script src="js/fslightbox.js"></script>
     <script src="js/swiper@12.js"></script>
+    <script src="js/dropzone.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

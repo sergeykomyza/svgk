@@ -218,6 +218,78 @@ const tabs = () => {
 }
 
 
+// ================================================== ЗАГРУЗКА ФАЙЛОВ (Dropzone, https://www.dropzone.dev)
+// Контейнер: .js-dropzone. Автопоиск плагина отключён — инициализация только по классу.
+// Ошибки (лимит файлов, размер, тип) выводятся в .dropzone-alert под зоной загрузки.
+const fileUpload = () => {
+    if (typeof Dropzone === 'undefined') return
+    Dropzone.autoDiscover = false
+
+    document.querySelectorAll('.js-dropzone').forEach(el => {
+        const alertBox = document.createElement('div')
+        alertBox.className = 'dropzone-alert'
+        el.insertAdjacentElement('afterend', alertBox)
+
+        let alertTimer = null
+        const showAlert = (message) => {
+            alertBox.textContent = message
+            alertBox.classList.add('is-visible')
+            clearTimeout(alertTimer)
+            alertTimer = setTimeout(() => {
+                alertBox.classList.remove('is-visible')
+                alertBox.textContent = ''
+            }, 4000)
+        }
+
+        new Dropzone(el, {
+            url: '/upload',
+            autoProcessQueue: false, // файлы только выбираются, отправка — сабмитом формы
+            addRemoveLinks: true,
+            maxFiles: 5,
+            maxFilesize: 10, // MB — встроенная проверка плагина (считает в MiB)
+            acceptedFiles: '.pdf, .jpg, .jpeg, .png',
+            // Кастомный accept заменяет ВСЕ встроенные проверки (размер и acceptedFiles),
+            // поэтому обе проверяем здесь явно:
+            // 1) размер: 10 МБ = 10 000 000 байт, как в проводнике
+            //    (встроенная проверка срабатывает только после 10 485 760 байт — MiB)
+            // 2) формат: по списку acceptedFiles (расширения ".pdf" или MIME "image/*")
+            accept(file, done) {
+                if (file.size > 10 * 1000 * 1000) {
+                    return done('Файл больше 10 МБ')
+                }
+                const allowed = this.options.acceptedFiles.split(',').map(s => s.trim().toLowerCase())
+                const ext = '.' + (file.name.split('.').pop() || '').toLowerCase()
+                const ok = allowed.some(rule => {
+                    if (rule.startsWith('.')) return ext === rule
+                    if (rule.endsWith('/*')) return file.type.split('/')[0] === rule.slice(0, -2)
+                    return file.type === rule
+                })
+                if (!ok) {
+                    return done('Недопустимый тип файла')
+                }
+                done()
+            },
+            dictRemoveFile: 'Удалить',
+            dictMaxFilesExceeded: 'Можно прикрепить не более 5 файлов',
+            dictFileTooBig: 'Файл больше 10 МБ',
+            dictInvalidFileType: 'Недопустимый тип файла',
+            init() {
+                // Превышен лимит файлов — отбрасываем лишний и сообщаем
+                this.on('maxfilesexceeded', file => {
+                    this.removeFile(file)
+                    showAlert(this.options.dictMaxFilesExceeded)
+                })
+                // Файл не прошёл проверку (размер/тип) — убираем из очереди и сообщаем
+                this.on('error', (file, message) => {
+                    if (file) this.removeFile(file)
+                    showAlert(typeof message === 'string' ? message : 'Не удалось добавить файл')
+                })
+            }
+        })
+    })
+}
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ INIT
 menu()
 inputMask()
@@ -225,3 +297,4 @@ tabs()
 accordion()
 map()
 toggleMenuMobile()
+fileUpload()
