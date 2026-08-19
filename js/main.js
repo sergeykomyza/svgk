@@ -159,9 +159,9 @@ const placeMap = () => {
         });
 
         myMap2.geoObjects
-            .add(new ymaps.Placemark([55.917879, 37.806326], {
+            .add(new ymaps.Placemark([53.188967, 50.107002], {
                 balloonContent: '<strong></strong>',
-                iconCaption: 'М.О., г. Королев, ул. Ленина 12'
+                iconCaption: '443010, г. Самара, ул. Льва Толстого, 95'
             }, {
                 preset: 'islands#blueCircleDotIconWithCaption',
                 iconCaptionMaxWidth: '200'
