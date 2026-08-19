@@ -71,7 +71,7 @@ const sliders = () => {
 
 }
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ КАРТА (Яндекс.Карты), ОТЛОЖЕННАЯ ЗАГРУЗКА
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ КАРТА C ТАБАМИ(Яндекс.Карты), ОТЛОЖЕННАЯ ЗАГРУЗКА 
 // Адреса и координаты берутся из data-атрибутов кнопок .js-showMap (массив в _contacts.pug)
 const map = () => {
     const mapEl = document.getElementById('map')
@@ -141,6 +141,54 @@ const map = () => {
     }
 
     setTimeout(loadAPI, 3000)
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ КАРТА ПРОСТАЯ(Яндекс.Карты), ОТЛОЖЕННАЯ ЗАГРУЗКА
+// Контейнер: #placemap. API подгружается лениво (скрипт подключается только на страницах с картой).
+const placeMap = () => {
+    const mapEl = document.getElementById('placemap')
+    if (!mapEl) return
+
+    function init() {
+        const myMap2 = new ymaps.Map("placemap", {
+            center: [55.917879, 37.806326],
+            zoom: 13,
+            controls: ['smallMapDefaultSet']
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
+
+        myMap2.geoObjects
+            .add(new ymaps.Placemark([55.917879, 37.806326], {
+                balloonContent: '<strong></strong>',
+                iconCaption: 'М.О., г. Королев, ул. Ленина 12'
+            }, {
+                preset: 'islands#blueCircleDotIconWithCaption',
+                iconCaptionMaxWidth: '200'
+            }));
+
+        myMap2.setType('yandex#publicMap');
+
+        myMap2.behaviors.disable('scrollZoom');
+        //на мобильных устройствах... (проверяем по userAgent браузера)
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            //... отключаем перетаскивание карты
+            myMap2.behaviors.disable('drag');
+        }
+    }
+
+    function loadAPI() {
+        if (window.ymaps) {
+            ymaps.ready(init)
+            return
+        }
+        const script = document.createElement('script')
+        script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU'
+        script.onload = () => ymaps.ready(init)
+        document.body.appendChild(script)
+    }
+
+    setTimeout(loadAPI, 4000)
 }
 
 // ==================================================
@@ -296,5 +344,6 @@ inputMask()
 tabs()
 accordion()
 map()
+placeMap()
 toggleMenuMobile()
 fileUpload()
